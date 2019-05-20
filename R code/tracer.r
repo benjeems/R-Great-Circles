@@ -24,8 +24,8 @@ map("world", col="grey22", fill=TRUE, bg="navyblue", lwd=.2)#, xlim=xlim, ylim=y
 
 #map("world", col="#101919", fill=TRUE, bg="#000000", lwd=0.5)
 
-traces <- read.csv("/Users/benreardon/dataviz/maltrace/5_all_withoutAUunmatched", sep = "," , header=FALSE)
-#traces <- read.csv("/Users/benreardon/dataviz/maltrace/5_all_withoutAUunmatched_detupled", sep = "," , header=FALSE)
+traces <- read.csv("/dataviz/maltrace/5_all_withoutAUunmatched", sep = "," , header=FALSE)
+#traces <- read.csv("/dataviz/maltrace/5_all_withoutAUunmatched_detupled", sep = "," , header=FALSE)
 lines <- nrow(traces)
 max_cnt <- max (traces$V1)
 max_width <- .15
