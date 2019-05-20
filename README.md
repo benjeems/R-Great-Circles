@@ -10,3 +10,5 @@ I tracked malicious IPs that were attempting to connect to our system located in
 I plotted these paths as Great Circle lines, which is the shortest route between two points when plotted on the curved surface of the earth. Some of the lines have also been color encoded, so as to indicate traffic directionality –  the green end of the line is the starting point and the red end is the landing point.
 
 Images were created using the programming language “R”, which is a well-known language for statistical computing and graphics. The images are within the images directory on this repo.
+
+https://en.wikipedia.org/wiki/Great_circle
