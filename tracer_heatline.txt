@@ -1,0 +1,61 @@
+library(maps)
+library(geosphere)
+width <- .4
+#pal_heatline <- colorRampPalette(c("red", "orange", "yellow", "green"))#, "blue", "violet", "white"))
+pal_heatline <- colorRampPalette(c("red", "green"))
+segments <- 100
+colors_heatline <- pal_heatline(segments)
+
+xlim <- c(-180, 180) #earth
+ylim <- c(-90, 90) #earth
+#xlim <- c(-170, -55) #USA
+#ylim <- c(12, 70) #USA
+#xlim <- c(-130, -65) #NORTHUSA
+#ylim <- c(15, 60) #NORTHUSA
+#xlim <- c(-16, 34) #EU
+#ylim <- c(38, 61) #EU
+#xlim <- c(107, 179) #AUNZ
+#ylim <- c(-48, 0) #AUNZ
+#xlim <- c(60, 150) #AISA
+#ylim <- c(10, 63) #AISA
+
+
+
+map("world", col="grey22", fill=TRUE, bg="navyblue", lwd=.2, xlim=xlim, ylim=ylim)
+
+traces <- read.csv("/Users/benreardon/dataviz/maltrace/5_all_withoutAUunmatched", sep = "," , header=FALSE)
+#traces <- read.csv("/Users/benreardon/dataviz/maltrace/5_all_withoutAUunmatched_detupled", sep = "," , header=FALSE)
+
+lines <- nrow(traces)
+
+	for (this_one in 1:lines) {
+		long1 <- traces$V3[this_one]
+		lat1 <- traces$V2[this_one]
+		long2 <- traces$V5[this_one]
+		lat2 <- traces$V4[this_one]   
+		
+		inter <- gcIntermediate(c(long1, lat1), c(long2, lat2), n=(segments-1), addStartEnd=TRUE,breakAtDateLine=TRUE)
+													
+		if (length(inter) >= 8 ) {
+			for (this_segment in 2:(segments)) {
+				this_heatline_color <- colors_heatline[this_segment] 
+				segments(inter[(this_segment-1),1], inter[(this_segment-1),2], inter[(this_segment),1], inter[(this_segment),2], col=this_heatline_color, lwd=width)						
+			}
+		}
+		
+		else {	
+			if (length(inter) < 6) {
+				
+				for (this_segment in 2:nrow(inter[[1]])) {
+					this_heatline_color <- colors_heatline[this_segment] 
+					segments(inter[[1]][(this_segment-1),1], inter[[1]][(this_segment-1),2], inter[[1]][(this_segment),1], inter[[1]][(this_segment),2], col=this_heatline_color, lwd=width)			
+				}
+				#and for the second matrix produced by gcIntermediate
+				for (this_segment in 2:(segments- nrow(inter[[1]]))+1) {
+					this_heatline_color <- colors_heatline[(nrow(inter[[1]]))+this_segment] 
+					segments(inter[[2]][(this_segment-1),1], inter[[2]][(this_segment-1),2], inter[[2]][(this_segment),1], inter[[2]][(this_segment),2], col=this_heatline_color, lwd=width)
+				}							
+			}
+		}
+	
+	}
