@@ -3,7 +3,7 @@
 
 Mapping malware on its way to Melbourne Australia using Great Circles in R
 
-![alt text](https://github.com/benjeems/R-Great-Circles/images/heat_lines/USA_unweighted.png "map")
+![alt text](https://github.com/benjeems/R-Great-Circles/blob/master/images/heat_lines/USA_unweighted.png "map")
 ![alt text](https://github.com/benjeems/Robot-Guitar/blob/master/images/breadboard_8001.jpg "Robot guitar circuitry")
 
 This is code repo for my visualization work as seen here: https://dataviz.com.au/2018/05/16/mapping-malware-on-its-way-to-melbourne-australia-using-great-circles/
