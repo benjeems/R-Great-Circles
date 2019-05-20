@@ -1,7 +1,7 @@
 # R-Great-Circles
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) 
 
-Mapping malware on its way to Melbourne Australia using Great Circles in R 
+Mapping malware on its way to Melbourne Australia using Great Circles in R.  
 This is code repo for my visualization work as seen here: https://dataviz.com.au/2018/05/16/mapping-malware-on-its-way-to-melbourne-australia-using-great-circles/
 
 ![alt text](https://github.com/benjeems/R-Great-Circles/blob/master/images/heat_lines/USA_unweighted.png "map")
