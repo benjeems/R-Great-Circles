@@ -3,7 +3,7 @@ library(geosphere)
 
 map("world", col="grey11", fill=TRUE, bg="navyblue", lwd=.2)
 
-traces <- read.csv("/Users/benreardon/honeynet/hpfriends/r_maltrace/output_feed_to_file_head500.txt", sep = "," , header=FALSE)
+traces <- read.csv("/dataviz/r_maltrace/output_feed_to_file_head500.txt", sep = "," , header=FALSE)
 lines <- nrow(traces)
 this_width=.5
 
