@@ -23,8 +23,8 @@ ylim <- c(-90, 90) #earth
 
 map("world", col="grey22", fill=TRUE, bg="navyblue", lwd=.2, xlim=xlim, ylim=ylim)
 
-traces <- read.csv("/Users/benreardon/dataviz/maltrace/5_all_withoutAUunmatched", sep = "," , header=FALSE)
-#traces <- read.csv("/Users/benreardon/dataviz/maltrace/5_all_withoutAUunmatched_detupled", sep = "," , header=FALSE)
+traces <- read.csv("/dataviz/maltrace/5_all_withoutAUunmatched", sep = "," , header=FALSE)
+#traces <- read.csv("/dataviz/maltrace/5_all_withoutAUunmatched_detupled", sep = "," , header=FALSE)
 
 lines <- nrow(traces)
 
